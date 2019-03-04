@@ -9,6 +9,19 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+
+;; buffer-expose
+ (defvar buffer-expose-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "<s-tab>") 'buffer-expose)
+    (define-key map (kbd "<C-tab>") 'buffer-expose-no-stars)
+    (define-key map (kbd "C-c <C-tab>") 'buffer-expose-current-mode)
+    (define-key map (kbd "C-c C-m") 'buffer-expose-major-mode)
+    (define-key map (kbd "C-c C-d") 'buffer-expose-dired-buffers)
+    (define-key map (kbd "C-c C-*") 'buffer-expose-stars)
+    map)
+  "Mode map for command `buffer-expose-mode'.")
+
 (require 'package)
 (setq package-archives
   '(("gnu" . "https://elpa.gnu.org/packages/")
