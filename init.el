@@ -1,3 +1,7 @@
+;; load-path で ~/.emacs.d とか書かなくてよくなる
+(when load-file-name
+  (setq user-emacs-directory (file-name-directory load-file-name)))
+(setq load-path (cons "~/.emacs.d/elisp" load-path))
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
