@@ -69,3 +69,6 @@
 ;; ~/.emacs.d/init/ 以下のファイルを全部読み込む
 (use-package init-loader)
 (init-loader-load "~/.emacs.d/init")
+;;dashboard
+(straight-use-package 'dashboard)
+(dashboard-setup-startup-hook)
