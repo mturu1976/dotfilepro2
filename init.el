@@ -119,3 +119,5 @@
         ("C-h" . nil))
     :config
     (global-company-mode))
+(straight-use-package 'flycheck)
+(global-flycheck-mode)
