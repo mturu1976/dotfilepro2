@@ -119,6 +119,10 @@
         ("C-h" . nil))
     :config
     (global-company-mode))
+;; Undo関連
+(straight-use-package 'undo-tree)
+(global-undo-tree-mode t)
+(global-set-key (kbd "M-/") 'undo-tree-redo) ;; redo
 (straight-use-package 'flycheck)
 (global-flycheck-mode)
 (straight-use-package 'dimmer)
