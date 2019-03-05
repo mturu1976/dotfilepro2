@@ -121,3 +121,6 @@
     (global-company-mode))
 (straight-use-package 'flycheck)
 (global-flycheck-mode)
+(straight-use-package 'dimmer)
+(dimmer-mode)
+;;(dimmer-use-colorspace '0.7)
