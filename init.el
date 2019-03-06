@@ -1,4 +1,7 @@
-;; load-path で ~/.emacs.d とか書かなくてよくなる
+;;; init.el --- Commentary:Mac用
+;; Copyright(c) 2019 by Hidenori Akiyama
+
+;;load-path で ~/.emacs.d とか書かなくてよくなる
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 (setq load-path (cons "~/.emacs.d/elisp" load-path))
