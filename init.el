@@ -5,6 +5,9 @@
 
 ;; 行番号表示
 (global-linum-mode t)
+;;ツールバー非表示
+(when (display-graphic-p)
+  (tool-bar-mode -1))
 ;;Font
 (set-fontset-font t 'japanese-jisx0208 "Ricty-Regular")
 ;; color-theme
