@@ -128,6 +128,8 @@
 (global-set-key (kbd "M-/") 'undo-tree-redo) ;; redo
 (straight-use-package 'flycheck)
 (global-flycheck-mode)
+;; dimmer
 (straight-use-package 'dimmer)
 (dimmer-mode)
+(setq dimmer-fraction '0.7)
 ;;(dimmer-use-colorspace '0.7)
