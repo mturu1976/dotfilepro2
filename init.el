@@ -1,6 +1,10 @@
-;;; init.el --- Commentary:Mac用
+;;; init.el --- Commentary:Mac用のinit.el
 ;; Copyright(c) 2019 by Hidenori Akiyama
 
+;; Author:Hidenori Akiyama<marusez@gmail.com>
+;; URL: 
+;; Version: 0.01
+;;; Code:
 ;;load-path で ~/.emacs.d とか書かなくてよくなる
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
@@ -27,6 +31,8 @@
 ;; "C-t"でウインドウを切り替える
 (define-key global-map (kbd "C-t") 'other-window)
 
+;;yesをyにする
+(defalias 'yes-or-no-p 'y-or-n-p)
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -136,3 +142,4 @@
 (dimmer-mode)
 (setq dimmer-fraction '0.7)
 ;;(dimmer-use-colorspace '0.7)
+;;; init.el ends here
