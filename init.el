@@ -150,11 +150,6 @@
   :config
     (setq dimmer-fraction '0.73)
 )
-;;(dimmer-mode)
-;;(setq dimmer-fraction '0.7)
-;;(dimmer-use-colorspace '0.7)
-
-
 
 ;;Color Identifiers Mode
 (straight-use-package 'color-identifiers-mode)
@@ -175,11 +170,10 @@
 ;;junknote
 (straight-use-package 'open-junk-file)
 (use-package open-junk-file
-  :init
   ;;(setq open-junk-file-format "~/Dropbox/emacs/junk/%Y-%m%d-%H%M%S.org")
   ;;(setq open-junk-file-format "~/Dropbox/emacs/junk/%Y-%m%d-memo.org") ;;今まで通りの設定
   ;;(setq open-junk-file-format "~/Dropbox/アプリ/synchronator-pomeradm200/junk/%Y-%m%d-memo.org") ;;pomera
-  (setq open-junk-file-format "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/%Y-%m%d-memo.org") ;;beorg
+  :config (setq open-junk-file-format "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/%Y-%m%d-memo.org") ;;beorg
   :bind (("\C-xj". 'open-junk-file)
   )
 )
@@ -192,8 +186,9 @@
 (straight-use-package 'beacon)
 (use-package beacon
   :init
-  (setq beacon-color "red")
-  (setq beacon-mode 1)
+    (beacon-mode 1)
+  :config
+    (setq beacon-color "red")
 )
 
 
