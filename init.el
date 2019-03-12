@@ -167,12 +167,17 @@
 
 ;;junknote
 (straight-use-package 'open-junk-file)
-(require 'open-junk-file)
-;;(setq open-junk-file-format "~/Dropbox/emacs/junk/%Y-%m%d-%H%M%S.org")
-;;(setq open-junk-file-format "~/Dropbox/emacs/junk/%Y-%m%d-memo.org") ;;今まで通りの設定
-;;(setq open-junk-file-format "~/Dropbox/アプリ/synchronator-pomeradm200/junk/%Y-%m%d-memo.org") ;;pomera
-(setq open-junk-file-format "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/%Y-%m%d-memo.org") ;;beorg
-(global-set-key "\C-xj" 'open-junk-file)
+(use-package open-junk-file
+  :init
+  ;;(setq open-junk-file-format "~/Dropbox/emacs/junk/%Y-%m%d-%H%M%S.org")
+  ;;(setq open-junk-file-format "~/Dropbox/emacs/junk/%Y-%m%d-memo.org") ;;今まで通りの設定
+  ;;(setq open-junk-file-format "~/Dropbox/アプリ/synchronator-pomeradm200/junk/%Y-%m%d-memo.org") ;;pomera
+  (setq open-junk-file-format "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/%Y-%m%d-memo.org") ;;beorg
+  :bind (("\C-xj". 'open-junk-file)
+  )
+)
+
+
 
 (straight-use-package 'volatile-highlights)
 
