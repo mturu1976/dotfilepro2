@@ -29,6 +29,9 @@
 ;;; 現在行を目立たせる ハイライト
 (global-hl-line-mode)
 
+
+;; ファイル末尾の改行を削除
+
 ;; "C-t"でウインドウを切り替える
 (define-key global-map (kbd "C-t") 'other-window)
 
@@ -175,17 +178,34 @@
 
 ;;beacon
 (straight-use-package 'beacon)
+(use-package beacon
+  :init
+  (setq beacon-color "red")
+  (setq beacon-mode 1)
+)
 
+
+;;All The Icons
+(use-package all-the-icons :ensure t)
 
 ;; neotree
 (straight-use-package 'neotree)
-(use-package neotree)
-(global-set-key [f8] 'neotree-toggle)
-
+(use-package neotree
+  :init
+  (setq neo-show-hidden-files t)
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (bind-keys([f8]. neotree-toggle)
+)
+)
 ;;writeroom-mode
 (straight-use-package 'writeroom-mode)
-(use-package writeroom-mode)
-;;(global-set-key [f8] 'writeroom-mode)
+(use-package writeroom-mode
+  :init
+  (bind-keys([f9]. writeroom-mode)
+  )
+)
+
+;;emacs-which-key
 
 ;;scrapbox
 (defun my-index-scrapbox ()
