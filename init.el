@@ -5,6 +5,7 @@
 ;; URL: 
 ;; Version: 0.01
 ;;; Code:
+
 ;;load-path で ~/.emacs.d とか書かなくてよくなる
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
@@ -142,4 +143,53 @@
 (dimmer-mode)
 (setq dimmer-fraction '0.7)
 ;;(dimmer-use-colorspace '0.7)
+
+
+
+;;Color Identifiers Mode
+(straight-use-package 'color-identifiers-mode)
+(add-hook 'after-init-hook 'global-color-identifiers-mode)
+;; (defun myfunc-color-identifiers-mode-hook ()
+;;   (let ((faces '(font-lock-comment-face font-lock-comment-delimiter-face font-lock-constant-face font-lock-type-face font-lock-function-name-face font-lock-variable-name-face font-lock-keyword-face font-lock-string-face font-lock-builtin-face font-lock-preprocessor-face font-lock-warning-face font-lock-doc-face font-lock-negation-char-face font-lock-regexp-grouping-construct font-lock-regexp-grouping-backslash)))
+;;     (dolist (face faces)
+;;       (face-remap-add-relative face '((:foreground "" :weight normal :slant normal)))))
+;;   (face-remap-add-relative 'font-lock-keyword-face '((:weight bold)))
+;;   (face-remap-add-relative 'font-lock-comment-face '((:slant italic)))
+;;   (face-remap-add-relative 'font-lock-builtin-face '((:weight bold)))
+;;   (face-remap-add-relative 'font-lock-preprocessor-face '((:weight bold)))
+;;   (face-remap-add-relative 'font-lock-function-name-face '((:slant italic)))
+;;   (face-remap-add-relative 'font-lock-string-face '((:slant italic)))
+;;   (face-remap-add-relative 'font-lock-constant-face '((:weight bold))))
+;; (add-hook 'color-identifiers-mode-hook 'myfunc-color-identifiers-mode-hook)
+
+;;junknote
+(straight-use-package 'open-junk-file)
+(require 'open-junk-file)
+;;(setq open-junk-file-format "~/Dropbox/emacs/junk/%Y-%m%d-%H%M%S.org")
+;;(setq open-junk-file-format "~/Dropbox/emacs/junk/%Y-%m%d-memo.org") ;;今まで通りの設定
+;;(setq open-junk-file-format "~/Dropbox/アプリ/synchronator-pomeradm200/junk/%Y-%m%d-memo.org") ;;pomera
+(setq open-junk-file-format "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/%Y-%m%d-memo.org") ;;beorg
+(global-set-key "\C-xj" 'open-junk-file)
+
+(straight-use-package 'volatile-highlights)
+
+;;beacon
+(straight-use-package 'beacon)
+
+
+;; neotree
+(straight-use-package 'neotree)
+(use-package neotree)
+(global-set-key [f8] 'neotree-toggle)
+
+;;writeroom-mode
+(straight-use-package 'writeroom-mode)
+(use-package writeroom-mode)
+;;(global-set-key [f8] 'writeroom-mode)
+
+;;scrapbox
+(defun my-index-scrapbox ()
+	(interactive)
+	(async-shell-command
+		"/Users/siroen/Documents/projects/dotfilepro2/packages/scrapbox-on-emacs-sample-master/get_scrapbox_page_titles.sh"))
 ;;; init.el ends here
