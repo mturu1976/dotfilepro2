@@ -1,4 +1,4 @@
-;;; init.el --- Commentary:Mac用のinit.el
+;; init.el --- Commentary:Mac用のinit.el
 ;; Copyright(c) 2019 by Hidenori Akiyama
 
 ;; Author:Hidenori Akiyama<marusez@gmail.com>
@@ -37,6 +37,7 @@
 
 ;;Ctrl+TAB で次のバッファーへ移動する
 ;;(global-set-key (kbd "<C-tab>") 'next-buffer)
+
 ;;yesをyにする
 (defalias 'yes-or-no-p 'y-or-n-p)
 ;; Added by Package.el.  This must come before configurations of
@@ -124,7 +125,7 @@
                         ;;(agenda . 5)
                         ;;(registers . 5)
                         ))
-;; company                        
+;; company
 (use-package company
     :init
     (setq company-selection-wrap-around t)
@@ -221,6 +222,7 @@
 	(interactive)
 	(async-shell-command
 		"/Users/siroen/Documents/projects/dotfilepro2/packages/scrapbox-on-emacs-sample-master/get_scrapbox_page_titles.sh"))
+
 ;; coding pyhon
 (use-package elpy
   :commands python-mode
@@ -231,4 +233,40 @@
 (use-package jedi
   :disabled t
   :after python-mode)
+
+
+
+;; coding php
+(straight-use-package 'php-mode)
+(use-package php-mode :ensure t
+  :mode
+  ("\\.php\\'" . php-mode)
+  ("\\.inc\\'" . php-mode)
+  :config
+  (progn
+    (use-package ac-php
+      :ensure t)
+    (use-package php-eldoc
+      :ensure t
+      :after php-mode)
+    )
+  )
+
+(straight-use-package 'cl)
+(use-package cl
+
+)
+
+(straight-use-package 'company-php)
+(use-package company-php)
+
+;; phpmode
+(autoload 'php-mode "php-mode" "Major mode for editing PHP code." t)
+;;(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
+
+;; php関連をuse-packageで綺麗に書きたい
+
+
+
 ;;; init.el ends here
