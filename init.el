@@ -148,7 +148,7 @@
   :init
     (dimmer-mode t)
   :config
-    (setq dimmer-fraction '0.73)
+    (setq dimmer-fraction '0.34)
 )
 
 ;;Color Identifiers Mode
