@@ -219,4 +219,14 @@
 	(interactive)
 	(async-shell-command
 		"/Users/siroen/Documents/projects/dotfilepro2/packages/scrapbox-on-emacs-sample-master/get_scrapbox_page_titles.sh"))
+;; coding pyhon
+(use-package elpy
+  :commands python-mode
+  :config
+  (setq elpy-rpc-python-command "python3")
+  (elpy-enable))
+
+(use-package jedi
+  :disabled t
+  :after python-mode)
 ;;; init.el ends here
