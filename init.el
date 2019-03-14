@@ -35,6 +35,8 @@
 ;; "C-t"でウインドウを切り替える
 (define-key global-map (kbd "C-t") 'other-window)
 
+;;Ctrl+TAB で次のバッファーへ移動する
+;;(global-set-key (kbd "<C-tab>") 'next-buffer)
 ;;yesをyにする
 (defalias 'yes-or-no-p 'y-or-n-p)
 ;; Added by Package.el.  This must come before configurations of
