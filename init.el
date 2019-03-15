@@ -29,7 +29,6 @@
 ;;; 現在行を目立たせる ハイライト
 (global-hl-line-mode)
 
-
 ;; ファイル末尾の改行を削除
 
 ;; "C-t"でウインドウを切り替える
@@ -267,6 +266,37 @@
 
 ;; php関連をuse-packageで綺麗に書きたい
 
+;;helm
+(straight-use-package 'helm)
+(use-package helm
+ :bind (("M-y" . helm-show-kill-ring)
+         ("C-x C-f" . helm-find-files)
+         ("C-x C-r" . helm-recentf)
+         ("C-h" . helm-ff-delete-char-backward)
+   ;;      ("TAB" . helm-execute-persistent-action)
+         ("TAB" . helm-find-files-map)
+)
+ :config (setq dumb-jump-selector 'ivy)
+ ;;:ensure t
+  )
+
+;; dumb-jump
+(straight-use-package 'dumb-jump)
+(use-package dumb-jump
+ :bind (("M-g o" . dumb-jump-go-other-window)
+         ("M-g j" . dumb-jump-go)
+         ("M-g i" . dumb-jump-go-prompt)
+         ("M-g x" . dumb-jump-go-prefer-external)
+         ("M-g z" . dumb-jump-go-prefer-external-other-window))
+ :config 
+;;(setq dumb-jump-selector 'ivy)
+(setq dumb-jump-selector 'helm)
+ ;;:ensure t
+  )
 
 
 ;;; init.el ends here
+
+
+
+
