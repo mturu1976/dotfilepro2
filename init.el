@@ -301,6 +301,12 @@
   :mode ("\\.yml\\'" . yaml-mode)
 )
 
+;; auto-package-update
+(use-package auto-package-update
+  :ensure t
+  :bind ("C-x P" . auto-package-update-now)
+  :config
+(setq auto-package-update-delete-old-versions t))
 ;;; init.el ends here
 
 
