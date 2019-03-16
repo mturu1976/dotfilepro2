@@ -294,6 +294,12 @@
  ;;:ensure t
   )
 
+;;yaml
+(straight-use-package 'yaml-mode)
+(use-package yaml-mode
+  :ensure t
+  :mode ("\\.yml\\'" . yaml-mode)
+)
 
 ;;; init.el ends here
 
