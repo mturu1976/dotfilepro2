@@ -326,6 +326,10 @@
 ;;)
 
 
+;;project
+(straight-use-package 'projectile)
+(projectile-global-mode)
+
 ;;行番号
 (straight-use-package 'nlinum)
 (use-package linum
