@@ -16,6 +16,9 @@
 ;;バッファの再読み込み
 (global-auto-revert-mode 1)
 
+;; スクリーンの最大化
+;;(set-frame-parameter nil 'fullscreen 'maximized)
+
 ;;ツールバー非表示
 (when (display-graphic-p)
   (tool-bar-mode -1))
@@ -82,7 +85,7 @@
  ;; If there is more than one, they won't work right.
  )
 
-  ;;straight.el
+;;straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -349,6 +352,51 @@
 	  image-mode
 	  pdf-view-mode
 	  eww-mode)))
+
+(straight-use-package 'popwin)
+(use-package popwin
+  :config
+  (setq helm-samewindow nil)
+  (setq display-buffer-function 'popwin:display-buffer)
+  (setq popwin:special-display-config '(("*compilation*" :noselect t)
+					;;("helm" :regexp t :height 0.4)
+					("anything" :regexp t :height 0.4)
+					))
+  
+;;  (push '("^\*helm .+\*$" :regexp t) popwin:special-display-config)
+  (push '("journal.org" :regexp t) popwin:special-display-config)
+  (push '("*rspec-compilation*" :regexp t) popwin:special-display-config)
+  (push '("*Oz Compiler*" :regexp t) popwin:special-display-config)
+  (push '("^CAPTURE-.+\*.org$" :regexp t) popwin:special-display-config)
+  (push '("*twittering-edit*" :regexp t) popwin:special-display-config)
+  (push '("R data view" :regexp t) popwin:special-display-config)
+  ;; (push '("^\*terminal<.+" :regexp t) popwin:special-display-config)
+  (push '("*Google Translate*") popwin:special-display-config)
+  (push "*Shell Command Output*" popwin:special-display-config) ;; M-!
+  (push '(compilation-mode :noselect t) popwin:special-display-config) ;; M-x compile
+  
+;;  (push '("^\*Org .+\*$" :regexp t) popwin:special-display-config)
+;;  (push '("*Agenda Commands*" :regexp t) popwin:special-display-config)
+  ;; (push '("^\*Org Agenda*" :regexp t) popwin:special-display-config)
+
+  (push '("*Completions*" :regexp t) popwin:special-display-config)
+  
+  ;; M-x dired-jump-other-window
+  (push '(dired-mode :position bottom) popwin:special-display-config)
+  
+  ;; undo-tree
+  (push '(" *undo-tree*" :width 0.3 :position right) popwin:special-display-config)
+  )
+
+(straight-use-package 'stripe-buffer)
+(use-package stripe-buffer
+
+  :config
+  (add-hook 'dired-mode-hook 'turn-on-stripe-buffer-mode)
+(add-hook 'org-mode-hook 'turn-on-stripe-table-mode)
+
+  ;;(add-hook 'org-mode-hook 'turn-on-stripe-table-mode)
+)
 
 ;;スムーズにスクロールさせる
 (straight-use-package 'smooth-scroll)
