@@ -12,7 +12,8 @@
 (setq load-path (cons "~/.emacs.d/elisp" load-path))
 
 ;; 行番号表示
-(global-linum-mode t)
+					;(global-linum-mode t)
+
 ;;ツールバー非表示
 (when (display-graphic-p)
   (tool-bar-mode -1))
@@ -307,8 +308,23 @@
   :bind ("C-x P" . auto-package-update-now)
   :config
 (setq auto-package-update-delete-old-versions t))
+
+
+
+
+
+;;行番号
+(straight-use-package 'nlinum)
+(use-package linum
+:init
+(add-hook 'after-init-hook 'global-linum-mode t)
+(setq linum-disabled-modes-list
+ 	'(eshell-mode
+	  wl-summary-mode
+	  compilation-mode
+	  dired-mode
+	  doc-view-mode
+	  image-mode
+	  pdf-view-mode
+
 ;;; init.el ends here
-
-
-
-
