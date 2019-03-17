@@ -309,8 +309,21 @@
   :config
 (setq auto-package-update-delete-old-versions t))
 
+;;markdown
+(straight-use-package 'markdown-mode)
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("CONTRIBUTING\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+:init (setq markdown-command "multimarkdown"))
 
+;;(straight-use-package 'flymake-yaml)
+;;(use-package flymake-yaml
 
+;;)
 
 
 ;;行番号
