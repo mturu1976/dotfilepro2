@@ -347,4 +347,11 @@
 	  pdf-view-mode
 	  eww-mode)))
 
+;;スムーズにスクロールさせる
+(straight-use-package 'smooth-scroll)
+(use-package smooth-scroll
+  :disabled t
+  :config
+  (smooth-scroll-mode t))
+
 ;;; init.el ends here
