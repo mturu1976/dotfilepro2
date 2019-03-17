@@ -13,6 +13,8 @@
 
 ;; 行番号表示
 					;(global-linum-mode t)
+;;バッファの再読み込み
+(global-auto-revert-mode 1)
 
 ;;ツールバー非表示
 (when (display-graphic-p)
