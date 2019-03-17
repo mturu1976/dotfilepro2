@@ -326,5 +326,6 @@
 	  doc-view-mode
 	  image-mode
 	  pdf-view-mode
+	  eww-mode)))
 
 ;;; init.el ends here
