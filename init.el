@@ -280,7 +280,7 @@
          ("C-x C-r" . helm-recentf)
          ("C-h" . helm-ff-delete-char-backward)
    ;;      ("TAB" . helm-execute-persistent-action)
-         ("TAB" . helm-find-files-map)
+;;         ("TAB" . helm-find-files-map)
 )
  :config (setq dumb-jump-selector 'ivy)
  ;;:ensure t
