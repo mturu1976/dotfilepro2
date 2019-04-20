@@ -11,10 +11,16 @@
   (setq user-emacs-directory (file-name-directory load-file-name)))
 (setq load-path (cons "~/.emacs.d/elisp" load-path))
 
+;; 起動時のスタートアップを消す
+(setq inhibit-startup-message t)
+
 ;; 行番号表示
 					;(global-linum-mode t)
 ;;バッファの再読み込み
 (global-auto-revert-mode 1)
+
+;;文字の点滅対策
+(setq mac-ime-cursor-type '(bar . 2))
 
 ;; スクリーンの最大化
 ;;(set-frame-parameter nil 'fullscreen 'maximized)
@@ -29,7 +35,7 @@
 ;;警告音off
 (setq ring-bell-function 'ignore)
 ;;点滅対策
-(setq redisplay-dont-pause nil)
+;;(setq redisplay-dont-pause nil)
 ;; 対応する括弧を光らせる。
 (show-paren-mode 1)
 ;;; 現在行を目立たせる ハイライト
@@ -143,12 +149,18 @@
         ("C-h" . nil))
     :config
     (global-company-mode))
-;; Undo関連
+
+;; Undo-tree
 (straight-use-package 'undo-tree)
+(use-package undo-tree)
 (global-undo-tree-mode t)
-(global-set-key (kbd "M-/") 'undo-tree-redo) ;; redo
+(global-set-key (kbd "M-/") 'undo-tree-redo)
+
+;; flycheck
 (straight-use-package 'flycheck)
-(global-flycheck-mode)
+(use-package flycheck
+  :init
+  (setq global-flycheck-mode t))
 
 ;; dimmer
 (straight-use-package 'dimmer)
@@ -385,7 +397,7 @@
   (push '(dired-mode :position bottom) popwin:special-display-config)
   
   ;; undo-tree
-  (push '(" *undo-tree*" :width 0.3 :position right) popwin:special-display-config)
+;;  (push '(" *undo-tree*" :width 0.3 :position right) popwin:special-display-config)
   )
 
 (straight-use-package 'stripe-buffer)
